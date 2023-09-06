@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App by Mahesh</title>
+
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=256&id=15352&format=png">
+    <link rel="stylesheet" href="./assets/index-a1bdd689.css">
+</head>
+
+<body onload="getUserLocation()">
+    <div id="wrapper" class="w-screen h-screen">
+        <div id="yourWeatherRender" class="w-full h-full ">
+            <div id="yourWeatherLeft" class="flex flex-col justify-between items-center p-6 relative">
+                <div id="loading" class="absolute w-full h-full top-0 bg-white flex justify-center items-center">
+                    <img src="https://miro.medium.com/v2/resize:fit:1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" alt="Loading"
+                        lazy>
+                </div>
+                <div id="nameAndFlag" class="flex font-semibold gap-4 text-2xl">
+                    <div id="nameRender"></div>
+                    <img id="flagRender" alt="flag" class="object-contain">
+                </div>
+                <div id="cloudIcon" class="  w-56 h-44"><img src="" alt="cloud" class="h-full w-full object-contain"
+                        id="mainImage"></div>
+                <div id="numbersSection" class="flex flex-col  items-center gap-5">
+                    <div id="currentTempRender" class="text-5xl"></div>
+                    <div id="weatherDesc"></div>
+                    <div id="miscSection">
+                        <div class="miscBox">
+                            <div class="miscImg"><i class="fa-solid fa-shirt"></i></div>
+                            <div class="miscText">
+                                <div class="miscTextDesc">Feels Like:</div>
+                                <div id="feelsLikeRender"></div>
+                            </div>
+                        </div>
+                        <div class="miscBox">
+                            <div class="miscImg"><i class="fa-solid fa-wind"></i></div>
+                            <div class="miscText">
+                                <div class="miscTextDesc">Wind Speed:</div>
+                                <div id="windSpeedRender"></div>
+                            </div>
+                        </div>
+                        <div class="miscBox">
+                            <div class="miscImg"><i class="fa-regular fa-eye"></i></div>
+                            <div class="miscText">
+                                <div class="miscTextDesc">Visibility:</div>
+                                <div id="visibilityRender">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="miscBox">
+                            <div class="miscImg"><i class="fa-solid fa-droplet"></i></div>
+                            <div class="miscText">
+                                <div class="miscTextDesc">Humidity:</div>
+                                <div id="humidityRender"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="yourWeatherRight" class="p-4 relative">
+                <div id="loading2" class="absolute w-full h-full top-0 bg-white flex justify-center items-center">
+                    <img src="https://miro.medium.com/v2/resize:fit:1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" alt="Loading"
+                        lazy>
+                </div>
+                <form class="flex rounded-full" id="searchForm">
+                    <button type="submit" class=""><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" placeholder="Search for location..." class="w-[25%]" id="searchCity">
+                    <button onclick="window.location.reload()" type="button"><i
+                            class="fa-solid fa-location-crosshairs "></i></button>
+                </form>
+                <h1 class="my-3 font-semibold text-2xl">Weekly Forecast</h1>
+                <div id="weeklyContainer" class="">
+                    <div class="weeklyBlock flex flex-col items-center">
+                        <div id="weekDayRender1">Today</div>
+                        <div id="weekDateRender1">05-09-2023</div>
+                        <div id="cloudIcon1" class="   w-20 h-14 my-3">
+                            <img src="" alt="cloud" class="h-full w-full object-contain" id="weekImage1">
+                        </div>
+                        <div id="weekTemp1" class=" flex gap-3">
+                            <div id="weekMaxRender1">17.5</div>
+                            <div id="weekMinRender1" class="greyText">16.5</div>
+                        </div>
+                    </div>
+                    <div class="weeklyBlock flex flex-col items-center">
+                        <div id="weekDayRender2">Today</div>
+                        <div id="weekDateRender2">05-09-2023</div>
+                        <div id="cloudIcon2" class="   w-20 h-14 my-3">
+                            <img src="" alt="cloud" class="h-full w-full object-contain" id="weekImage2">
+                        </div>
+                        <div id="weekTemp2" class=" flex gap-3">
+                            <div id="weekMaxRender2">17.5</div>
+                            <div id="weekMinRender2" class="greyText">16.5</div>
+                        </div>
+                    </div>
+                    <div class="weeklyBlock flex flex-col items-center">
+                        <div id="weekDayRender3">Today</div>
+                        <div id="weekDateRender3">05-09-2023</div>
+                        <div id="cloudIcon3" class="   w-20 h-14 my-3">
+                            <img src="" alt="cloud" class="h-full w-full object-contain" id="weekImage3">
+                        </div>
+                        <div id="weekTemp3" class=" flex gap-3">
+                            <div id="weekMaxRender3">17.5</div>
+                            <div id="weekMinRender3" class="greyText">16.5</div>
+                        </div>
+                    </div>
+                    <div class="weeklyBlock flex flex-col items-center">
+                        <div id="weekDayRender4">Today</div>
+                        <div id="weekDateRender4">05-09-2023</div>
+                        <div id="cloudIcon4" class="   w-20 h-14 my-3">
+                            <img src="" alt="cloud" class="h-full w-full object-contain" id="weekImage4">
+                        </div>
+                        <div id="weekTemp4" class=" flex gap-3">
+                            <div id="weekMaxRender4">17.5</div>
+                            <div id="weekMinRender4" class="greyText">16.5</div>
+                        </div>
+                    </div>
+                    <div class="weeklyBlock flex flex-col items-center">
+                        <div id="weekDayRender5">Today</div>
+                        <div id="weekDateRender5">05-09-2023</div>
+                        <div id="cloudIcon5" class="   w-20 h-14 my-3">
+                            <img src="" alt="cloud" class="h-full w-full object-contain" id="weekImage5">
+                        </div>
+                        <div id="weekTemp5" class=" flex gap-3">
+                            <div id="weekMaxRender5">17.5</div>
+                            <div id="weekMinRender5" class="greyText">16.5</div>
+                        </div>
+                    </div>
+                    <div class="weeklyBlock flex flex-col items-center">
+                        <div id="weekDayRender6">Today</div>
+                        <div id="weekDateRender6">05-09-2023</div>
+                        <div id="cloudIcon6" class="   w-20 h-14 my-3">
+                            <img src="" alt="cloud" class="h-full w-full object-contain" id="weekImage6">
+                        </div>
+                        <div id="weekTemp6" class=" flex gap-3">
+                            <div id="weekMaxRender6">17.5</div>
+                            <div id="weekMinRender6" class="greyText">16.5</div>
+                        </div>
+                    </div>
+                    <div class="weeklyBlock flex flex-col items-center">
+                        <div id="weekDayRender7">Today</div>
+                        <div id="weekDateRender7">05-09-2023</div>
+                        <div id="cloudIcon7" class="   w-20 h-14 my-3">
+                            <img src="" alt="cloud" class="h-full w-full object-contain" id="weekImage7">
+                        </div>
+                        <div id="weekTemp7" class=" flex gap-3">
+                            <div id="weekMaxRender7">17.5</div>
+                            <div id="weekMinRender7" class="greyText">16.5</div>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="my-3 font-semibold text-2xl">Hourly Forecast</h1>
+                <div class="h-[55%] w-[75%] flex justify-center bg-white rounded-2xl" id="chartContainer">
+                    <canvas id="chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/d1bf1bacdb.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

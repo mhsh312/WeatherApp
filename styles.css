@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#outputSection {
+    position: relative;
+}
+
+#yourWeatherOutput {
+    position: absolute;
+}
+
+#searchWeatherOutput {
+    position: absolute;
+}
+
+input[type="radio"] {
+    visibility: hidden;
+}
+
+input[type="radio"]:checked+label {
+    background-color: rgb(96, 165, 250);
+    color: white;
+}
+
+#locationFetchBtn {
+    background-color: rgb(49, 175, 145);
+}
+
+#yourWeatherRender {
+    display: grid;
+    grid-template-columns: 0.25fr 0.75fr;
+}
+
+#miscSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 0.5rem;
+    row-gap: 1rem;
+}
+
+.miscBox {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    font-size: larger;
+}
+
+.miscImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-shirt,
+.fa-wind,
+.fa-eye,
+.fa-droplet {
+    background-color: rgb(247, 247, 249);
+    padding: 0.8rem;
+    border-radius: 9999px;
+}
+
+.fa-magnifying-glass,
+.fa-location-crosshairs {
+    background-color: white;
+    padding: 0.8rem;
+}
+
+.miscText {
+    display: flex;
+    flex-direction: column;
+}
+
+.miscTextDesc {
+    color: rgb(179, 178, 175);
+    font-size: 1rem;
+}
+
+#yourWeatherRight {
+    background-color: rgb(247, 247, 249);
+}
+
+#weeklyContainer {
+    display: grid;
+    grid-template-columns: repeat(7, 14.2fr);
+    gap: 1rem;
+}
+
+.weeklyBlock {
+    border-radius: 1rem;
+    background-color: white;
+}
+
+.greyText {
+    color: gray;
+}
+
+#searchCity:focus {
+    outline: none;
+}
