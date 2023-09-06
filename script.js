@@ -20,7 +20,7 @@ const mainImage = document.querySelector("#mainImage");
 //Your Weather Functions
 function getUserLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showposition);
+        navigator.geolocation.getCurrentPosition(showposition, showerror);
     }
     else {
         console.log("No Location Support in this browser");
@@ -31,6 +31,12 @@ function showposition(position) {
     let lat = position.coords.latitude;
     let long = position.coords.longitude;
     getWeatherInfoByCoords(lat, long);
+}
+
+function showerror(error) {
+    if (error.PERMISSION_DENIED) {
+        alert("Please allow location permission to get user location for weather.");
+    }
 }
 
 async function getWeatherInfoByCoords(lat, long) {
